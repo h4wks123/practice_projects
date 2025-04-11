@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tic Tac Toe Project</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <section class="tic-tac-toe">
+        <header class="tic-tac-toe-header">
+          <li class="tic-tac-toe-header__list-items">TIC</li>
+          <li class="tic-tac-toe-header__list-items">TAC</li>
+          <li class="tic-tac-toe-header__list-items">TOE</li>
+        </header>
+        <div class="tic-tac-toe-score-board">
+          <h3 id="tic-tac-toe__blue-points">X points: 0</h3>
+          <h3 id="tic-tac-toe__red-points">Y points: 0</h3>
+        </div>
+        <div class="tic-tac-toe-body">
+          <div
+            id="tic-tac-toe-first-cells"
+            class="tic-tac-toe-first-cells"
+          ></div>
+          <div
+            id="tic-tac-toe-second-cells"
+            class="tic-tac-toe-second-cells"
+          ></div>
+          <div
+            id="tic-tac-toe-third-cells"
+            class="tic-tac-toe-third-cells"
+          ></div>
+        </div>
+        <div id="tic-tac-toe-turn" class="tic-tac-toe-turn"></div>
+        <div class="tic-tac-toe__buttons">
+          <button
+            id="tic-tac-toe__submit-button"
+            class="tic-tac-toe__submit-button"
+            onclick="submitResult()"
+          >
+            Submit
+          </button>
+          <button class="tic-tac-toe__rematch-button" onclick="rematch()">
+            Re-Match
+          </button>
+          <button class="tic-tac-toe__reset-button" onclick="reset()">
+            Reset
+          </button>
+        </div>
+        <h3 id="tic-tac-toe-result" class="tic-tac-toe-result"></h3>
+      </section>
+    </div>
+  </body>
+</html>
