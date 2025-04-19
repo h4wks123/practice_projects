@@ -28,7 +28,7 @@ function fetchCountriesData(filter) {
   });
 }
 
-function displayCountriesData(data) {
+function displayCountriesCards(data) {
   let countriesContainer = document.getElementById("country-cards");
   let fragment = document.createDocumentFragment();
 
@@ -56,7 +56,7 @@ function displayCountriesData(data) {
 function handleCountryFetch(filter) {
   fetchCountriesData(filter)
     .then((data) => {
-      displayCountriesData(data);
+      displayCountriesCards(data);
     })
     .catch((error) => {
       console.log(error);
@@ -74,6 +74,7 @@ function changeTheme() {
 
 function checkTheme() {
   if (localStorage.theme === "light") {
+    document.body.classList = "light";
     document.getElementById("navigation-bar-right__button-mode").src =
       "./assets/dark-mode.svg";
     document.getElementById("navigation-bar-right__text").innerHTML =
@@ -81,6 +82,7 @@ function checkTheme() {
     document.getElementById("filter-options-search__icon").src =
       "./assets/search-dark-mode.svg";
   } else {
+    document.body.classList = "";
     document.getElementById("navigation-bar-right__button-mode").src =
       "./assets/light-mode.svg";
     document.getElementById("navigation-bar-right__text").innerHTML =
@@ -92,6 +94,8 @@ function checkTheme() {
 
 function displayCountryData(countryName) {
   location.href = `countries.html`;
+  localStorage.setItem("countryData", countryName);
 }
 
 handleCountryFetch(filter);
+checkTheme();
