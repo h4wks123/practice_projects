@@ -37,6 +37,7 @@ function displayCountriesData(data) {
   for (let index = 0; index < data.length; index++) {
     let card = document.createElement("div");
     card.className = "country-cards__paper";
+    card.onclick = () => displayCountryData(data[index].name.common);
     card.innerHTML += `
         <img class="country-cards__paper-flag" loading="lazy" src="${data[index].flags.png}" />
         <article class="country-cards__paper-details">
@@ -67,7 +68,12 @@ function handleCountryFetch(filter) {
 
 function changeTheme() {
   document.body.classList.toggle("light");
-  if (document.body.classList.contains("light")) {
+  localStorage.setItem("theme", document.body.classList.value);
+  checkTheme();
+}
+
+function checkTheme() {
+  if (localStorage.theme === "light") {
     document.getElementById("navigation-bar-right__button-mode").src =
       "./assets/dark-mode.svg";
     document.getElementById("navigation-bar-right__text").innerHTML =
@@ -82,6 +88,10 @@ function changeTheme() {
     document.getElementById("filter-options-search__icon").src =
       "./assets/search-light-mode.svg";
   }
+}
+
+function displayCountryData(countryName) {
+  location.href = `countries.html`;
 }
 
 handleCountryFetch(filter);
